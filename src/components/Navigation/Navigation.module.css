@@ -1,0 +1,19 @@
+.navBar {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 4rem;
+    position: absolute;
+    width: 100%;
+}
+
+.logo {
+    height: 80%;
+}
+
+.navList {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    list-style: none;
+}
