@@ -1,8 +1,10 @@
 .calendarWrapper {
     min-height: 100vh;
-    padding: 5rem;
+    padding: 6rem;
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+    box-sizing: border-box;
 }
