@@ -1,4 +1,4 @@
-import logo from '../../logo.svg'
+import { NavLink } from 'react-router-dom'
 import style from './Navigation.module.css'
 
 import { useEffect, useState } from 'react'
@@ -22,11 +22,22 @@ function Navigation() {
 
     return (
         <nav className={style.navBar} style={ cssNav }>
-            <img src={logo} alt="logo" className={style.logo} />
-            <ul className={style.navList}>
-                <li>Home</li>
-                <li>Calendar</li>
-            </ul>
+            <NavLink
+                to='/'
+                className={({ isActive, isPending }) =>
+                    isActive ? `${style.navLink} ${style.navLinkActive}` : style.navLink
+                }
+            >
+                Home
+            </NavLink>
+            <NavLink
+                to='/calendar'
+                className={({ isActive, isPending }) =>
+                    isActive ? `${style.navLink} ${style.navLinkActive}` : style.navLink
+                }
+            >
+                Calendar
+            </NavLink>
         </nav>
     )
 }

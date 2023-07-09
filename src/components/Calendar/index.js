@@ -1,69 +1,35 @@
 import style from './Calendar.module.css'
 
-import MonthCard from '../MonthCard'
+// import MonthCard from '../MonthCard'
 import MonthBubble from '../MonthBubble'
+import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 
 function Calendar() {
+    const [months, setMonths] = useState([])
 
-    const months = [
-        {
-            name: "January",
-            time: 8,
-        },
-        {
-            name: "February",
-            time: 5,
-        },
-        {
-            name: "March",
-            time: 10,
-        },
-        {
-            name: "April",
-            time: 7,
-        },
-        {
-            name: "May",
-            time: 9,
-        },
-        {
-            name: "June",
-            time: 8,
-        },
-        {
-            name: "July",
-            time: 11,
-        },
-        {
-            name: "August",
-            time: 9,
-        },
-        {
-            name: "September",
-            time: 6,
-        },
-        {
-            name: "October",
-            time: 8,
-        },
-        {
-            name: "November",
-            time: 10,
-        },
-        {
-            name: "December",
-            time: 7,
-        },
-    ]
+    useEffect(() => {
+        fetch(`${process.env.REACT_APP_SERVER_URL}/api/months`)
+        .then(res => {
+            res.json()
+            .then(res => {
+                setMonths(res)
+            })
+            .catch(e => {console.log(e)})
+        })
+        .catch(e => {console.log(e)})
+    }, [])
 
     return (
         <div className={style.calendarWrapper}>
             {
-                months.map((month, id) => {
+                months ? months.map((month) => {
                     return (
-                        <MonthBubble key={id} month={month} />
+                        <Link to={`/${month.month}`} className={style.monthLink}>
+                            <MonthBubble key={month.id} month={month} />
+                        </Link>
                     )
-                })
+                }) : null
             }
         </div>
     )

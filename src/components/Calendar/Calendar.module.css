@@ -8,3 +8,7 @@
     flex-wrap: wrap;
     box-sizing: border-box;
 }
+
+.monthLink {
+    text-decoration: none;
+}

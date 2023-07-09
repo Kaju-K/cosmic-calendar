@@ -1,7 +1,7 @@
 import style from './MonthBubble.module.css'
-import background from './BigBang.png'
+// import background from './BigBang.png'
 
-function MonthBubble({month}) {
+function MonthBubble({ month }) {
     return (
         <>
             <style children={`
@@ -25,13 +25,14 @@ function MonthBubble({month}) {
                     }
                 }
             `} />
+
             <div
                 className={style.bubble}
                 style={{
-                    animation: `bubbleMovement ${month.time}s ease-in-out infinite`
+                    animation: `bubbleMovement ${month.bubble_time}s ease-in-out infinite`
                 }}
             >
-                <img src={background} className={style.bubbleBackground} alt='background'/>
+                <img src={month.image} className={style.bubbleBackground} alt='background' />
                 <span></span>
                 <span></span>
                 <span></span>
@@ -40,10 +41,10 @@ function MonthBubble({month}) {
                 <h1
                     className={style.monthName}
                     style={{
-                        animation: `textMovement ${month.time}s ease-in-out infinite`
+                        animation: `textMovement ${month.bubble_time}s ease-in-out infinite`
                     }}
                 >
-                    {month.name}
+                    {month.month}
                 </h1>
             </div>
         </>
