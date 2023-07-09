@@ -9,6 +9,7 @@ import Navigation from './components/Navigation';
 import HomePage from './pages/HomePage';
 import CalendarPage from './pages/CalendarPage';
 import MonthPage from './pages/MonthPage';
+import ErrorPage from './pages/ErrorPage';
 
 
 const router = createBrowserRouter([
@@ -21,7 +22,7 @@ const router = createBrowserRouter([
         </main>
       </>
     ),
-    errorElement: <h1>ERROR</h1>,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: '/',
